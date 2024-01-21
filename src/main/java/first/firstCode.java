@@ -13,6 +13,7 @@ public class firstCode {
     }
 
     public static int points(String[] games) {
+        https://www.codewars.com/kata/5bb904724c47249b10000131/train/java
         int result = 0;
         List<Integer> resultats = Arrays.stream(games)
              //   .map(p -> p.substring(0,1)).collect(Collectors.toList());
