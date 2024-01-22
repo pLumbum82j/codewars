@@ -1,10 +1,10 @@
 package first;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class firstCode {
+public class FirstCode {
     public static void main(String[] args) {
         // System.out.println(toJadenCase("most trees are blue"));
         // System.out.println(fakeBin("45385593107843568"));
@@ -13,16 +13,12 @@ public class firstCode {
     }
 
     public static int points(String[] games) {
-        https://www.codewars.com/kata/5bb904724c47249b10000131/train/java
-        int result = 0;
-        List<Integer> resultats = Arrays.stream(games)
-             //   .map(p -> p.substring(0,1)).collect(Collectors.toList());
-                .map(p -> Integer.parseInt(p.substring(0,1)) == Integer.parseInt(p.substring(2)) ? 1 :
-                        Integer.parseInt(p.substring(0,1)) > Integer.parseInt(p.substring(2)) ? 3 : 0)
-                .collect(Collectors.toList());
-        System.out.println(resultats.toString());
+        Optional<Integer> resultats = Arrays.stream(games)
+                .map(p -> Integer.parseInt(p.substring(0, 1)) == Integer.parseInt(p.substring(2)) ? 1 :
+                        Integer.parseInt(p.substring(0, 1)) > Integer.parseInt(p.substring(2)) ? 3 : 0)
+                .reduce((x, y) -> x + y);
 
-        return result;
+        return resultats.orElse(0);
     }
 
     public static String fakeBin(String numberString) {
